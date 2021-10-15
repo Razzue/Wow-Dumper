@@ -15,35 +15,21 @@ namespace WowScanner
             try
             {
                 var Match = Scans.CompiledFindPattern(Input.Pattern).Offset;
-                // Console.WriteLine($"0x{Match:X}");
                 if (Match == 0x0) return IntPtr.Zero;
 
                 var ValueOffset = Match + Input.Offset1;
-                // Console.WriteLine($"0x{ValueOffset:X}");
-
                 var Value = WoW.Read<int>(WoW.Base + ValueOffset);
-                // Console.WriteLine($"0x{Value:X}");
 
                 var Next = Match + Input.Offset2;
-                // Console.WriteLine($"0x{Value:X}");
-
                 var nValAddress = WoW.Base + Next;
-                // Console.WriteLine($"0x{nValAddress:X}");
-
                 var nValue = nValAddress + Value;
-                // Console.WriteLine($"0x{nValue:X}");
 
                 var Found = nValue.ToInt64() - WoW.Base.ToInt64() - 1;
-                // Console.WriteLine($"0x{Found:X}");
-
-
                 if (Found != 0 && Input.Levels.Count > 0)
                     Found = ScanNext(Input, Found).ToInt64();
-                // Console.WriteLine($"0x{Found:X}");
 
                 if (Found != 0 && Input.AddOffset != 0)
                     Found += Input.AddOffset;
-                // Console.WriteLine($"0x{Found:X}");
 
                 return new IntPtr(Found);
             }
