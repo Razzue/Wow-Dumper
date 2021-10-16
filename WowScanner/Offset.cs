@@ -43,9 +43,9 @@ namespace WowScanner
             try
             {
                 var Base = new IntPtr(l);
-                return Base == IntPtr.Zero 
-                    ? IntPtr.Zero 
-                    : o.Levels.Aggregate(Base, 
+                return Base == IntPtr.Zero
+                    ? IntPtr.Zero
+                    : o.Levels.Aggregate(Base,
                         (current, lvl) => ScanLevel(current.ToInt64(), lvl));
             }
             catch (Exception e)
@@ -54,6 +54,7 @@ namespace WowScanner
                 return IntPtr.Zero;
             }
         }
+
         private IntPtr ScanLevel(long l1, Level l2)
         {
             try
@@ -66,7 +67,7 @@ namespace WowScanner
                 var nValue = nValAddress + Value;
                 var Found = nValue - WoW.Base.ToInt64() - 1;
 
-                return Found != 0? new IntPtr(Found) : IntPtr.Zero;
+                return Found != 0 ? new IntPtr(Found) : IntPtr.Zero;
             }
             catch (Exception e)
             {
@@ -86,10 +87,18 @@ namespace WowScanner
         public int AddOffset { get; set; }
 
         internal List<Level> Levels = new List<Level>();
+        internal List<Field> Fields = new List<Field>();
     }
 
     internal class Level
     {
+        public int Offset1 { get; set; }
+        public int Offset2 { get; set; }
+    }
+
+    internal class Field
+    {
+        public string Name { get; set; }
         public int Offset1 { get; set; }
         public int Offset2 { get; set; }
     }

@@ -19,8 +19,10 @@ namespace WowScanner
         #endregion
 
         internal static Process Proc;
-        internal static IntPtr Base => Proc?.MainModule.BaseAddress ?? IntPtr.Zero;
         internal static IntPtr Handle;
+        internal static IntPtr Base => Proc?.MainModule.BaseAddress ?? IntPtr.Zero;
+        internal static int BuildVersion => Proc?.MainModule.FileVersionInfo.FilePrivatePart ?? 0;
+        internal static string ClientVersion => Proc?.MainModule.FileVersionInfo.ProductVersion ?? string.Empty;
 
         internal static bool FindWow()
         {
