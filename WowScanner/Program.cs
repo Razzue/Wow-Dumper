@@ -344,16 +344,34 @@ namespace WowScanner
             new Offset
             {
                 Name = "TBC Camera Base",
-                Pattern = "48 8B 1D ?? ?? ?? ?? 48 85 DB 74 ?? E8 ?? ?? ?? ?? 84 C0",
+                Pattern = "48 8B 05 ?? ?? ?? ?? 48 8B 88 ?? ?? ?? ?? 48 8B 43 ?? 48 39 81 ?? ?? ?? ??",
                 Offset1 = 3,
                 Offset2 = 8,
+                Fields = new List<Field>
+                {
+                    new Field()
+                    {
+                        Name = "Camera Offset",
+                        Offset1 = 10,
+                        Offset2 = 15
+                    }
+                }
             },
             new Offset
             {
                 Name = "RET Camera Base",
-                Pattern = "48 8B 1D ?? ?? ?? ?? 48 85 DB 74 ?? E8 ?? ?? ?? ?? 84 C0",
+                Pattern = "48 8B 05 ?? ?? ?? ?? 48 8B 88 ?? ?? ?? ?? 48 8B 43 ?? 48 39 81 ?? ?? ?? ??",
                 Offset1 = 3,
                 Offset2 = 8,
+                Fields = new List<Field>
+                {
+                    new Field()
+                    {
+                        Name = "Camera Offset",
+                        Offset1 = 10,
+                        Offset2 = 15
+                    }
+                }
             },
 
             new Offset
@@ -366,7 +384,7 @@ namespace WowScanner
             new Offset
             {
                 Name = "RET Object Manager",
-                Pattern = "48 8B 1D ?? ?? ?? ?? 48 85 DB 74 ?? E8 ?? ?? ?? ?? 84 C0",
+                Pattern = "48 8B 1D ?? ?? ?? ?? 48 85 DB 74 ?? 80 3D ?? ?? ?? ?? ?? 74 ?? 48 8D 0D ?? ?? ?? ??",
                 Offset1 = 3,
                 Offset2 = 8,
             },
@@ -381,7 +399,7 @@ namespace WowScanner
             new Offset
             {
                 Name = "RET Player Name Cache",
-                Pattern = "48 8B 1D ?? ?? ?? ?? 48 85 DB 74 ?? 80 3D ?? ?? ?? ?? ?? 74 ?? 48 8D 0D ?? ?? ?? ??",
+                Pattern = "48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 4C 8B D0 48 85 C0 74 ??",
                 Offset1 = 3,
                 Offset2 = 8,
             },
@@ -409,15 +427,37 @@ namespace WowScanner
                 foreach (var Offset in Offsets)
                 {
                     var Pointer = Scanner.FindOffset(Offset);
+                    if (Offset.Name.Contains("ERA"))
+                    {
+                        Console.WriteLine($"{Offset.Name} -> {Pointer.ToInt64()}");
+                        if (Offset.Fields.Count > 0)
+                            for (var i = 0; i < Offset.Fields.Count; i++)
+                            {
+                                Console.WriteLine($"{Offset.Fields[i].Name} -> " +
+                                                  $"{Scanner.GetField(Offset, i).ToInt64()}");
+                            }
+                    }
+                }
+                foreach (var Offset in Offsets)
+                {
+                    var Pointer = Scanner.FindOffset(Offset);
                     if (Offset.Name.Contains("TBC"))
+                    {
                         Console.WriteLine($"{Offset.Name} -> 0x{Pointer.ToInt64():X}");
+                        if (Offset.Fields.Count > 0)
+                            for (var i = 0; i < Offset.Fields.Count; i++)
+                            {
+                                Console.WriteLine($"{Offset.Fields[i].Name} -> " +
+                                                  $"0x{Scanner.GetField(Offset, i).ToInt64():X}");
+                            }
+                    }
                 }
                 Console.WriteLine("");
                 foreach (var Offset in Offsets)
                 {
                     var Pointer = Scanner.FindOffset(Offset);
                     if (Offset.Name.Contains("RET"))
-                        Console.WriteLine($"{Offset.Name} -> 0x{Pointer.ToInt64():X}");
+                        Console.WriteLine($"{Offset.Name} -> 0x{(Pointer.ToInt64())}");
                 }
             }
 

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace WowScanner
+namespace Wow_Scanner
 {
     internal class WoW
     {
@@ -21,7 +19,7 @@ namespace WowScanner
         internal static Process Proc;
         internal static IntPtr Handle;
         internal static IntPtr Base => Proc?.MainModule.BaseAddress ?? IntPtr.Zero;
-        internal static int BuildVersion  => Proc?.MainModule.FileVersionInfo.FilePrivatePart ?? 0;
+        internal static int BuildVersion => Proc?.MainModule.FileVersionInfo.FilePrivatePart ?? 0;
         internal static string ClientVersion => Proc?.MainModule.FileVersionInfo.ProductVersion ?? string.Empty;
 
         internal static bool FindWow()
@@ -34,9 +32,8 @@ namespace WowScanner
                 Proc = Procs.Length > 0 ? Procs.FirstOrDefault() : null;
                 return null != Proc;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
                 return false;
             }
         }
@@ -48,7 +45,7 @@ namespace WowScanner
                 Handle = OpenProcess(ALL_ACCESS, false, Proc.Id);
                 return Handle != IntPtr.Zero;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
@@ -67,6 +64,7 @@ namespace WowScanner
             hand.Free();
             return stuff;
         }
+
         internal static byte[] ReadBytes(IntPtr address, int size)
         {
             var data = new byte[size];

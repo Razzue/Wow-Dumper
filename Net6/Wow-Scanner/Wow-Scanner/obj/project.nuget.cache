@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "1noEHD1R5i4RkH44VMaYjJR0CxxIemNoa23E0MtyLa5IZghp68Wd7Q/WRhAaJxyGNSWiDc6NEazkyKAwAtmF0w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\no\\Documents\\GitHub\\Wow-Dumper\\Net6\\Wow-Scanner\\Wow-Scanner\\Wow-Scanner.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\no\\.nuget\\packages\\reloaded.memory\\1.4.1\\reloaded.memory.1.4.1.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\reloaded.memory.sigscan\\1.2.1\\reloaded.memory.sigscan.1.2.1.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}

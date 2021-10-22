@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Reloaded.Memory.Sigscan;
+﻿using Reloaded.Memory.Sigscan;
 
-namespace WowScanner
+namespace Wow_Scanner
 {
     internal class Scan
     {
         private Scanner Scans;
         internal Scan() => Scans = new Scanner(WoW.Proc, WoW.Proc.MainModule);
-
-        internal IntPtr FindOffset(Offset Input)
+        internal IntPtr FindOffset(OffsetBase Input)
         {
             try
             {
                 var Match = Scans.CompiledFindPattern(Input.Pattern).Offset;
                 if (Match == 0x0) return IntPtr.Zero;
 
-                var ValueOffset = Match + Input.Offset1;
+                var ValueOffset = Match + Input.StartIndex;
                 var Value = WoW.Read<int>(WoW.Base + ValueOffset);
 
-                var Next = Match + Input.Offset2;
+                var Next = Match + Input.EndIndex;
                 var nValAddress = WoW.Base + Next;
                 var nValue = nValAddress + Value;
 
@@ -38,8 +34,7 @@ namespace WowScanner
                 return IntPtr.Zero;
             }
         }
-
-        internal IntPtr GetField(Offset Input, int index)
+        internal IntPtr GetField(OffsetBase Input, int index)
         {
             var Match = Scans.CompiledFindPattern(Input.Pattern).Offset;
             if (Match == 0x0) return IntPtr.Zero;
@@ -48,7 +43,7 @@ namespace WowScanner
             var Value = WoW.Read<int>(WoW.Base + ValueOffset);
             return new IntPtr(Value);
         }
-        internal IntPtr ScanNext(Offset o, long l)
+        internal IntPtr ScanNext(OffsetBase o, long l)
         {
             try
             {
@@ -64,8 +59,7 @@ namespace WowScanner
                 return IntPtr.Zero;
             }
         }
-
-        private IntPtr ScanLevel(long l1, Level l2)
+        private IntPtr ScanLevel(long l1, OffsetLevel l2)
         {
             try
             {
@@ -85,31 +79,5 @@ namespace WowScanner
                 return IntPtr.Zero;
             }
         }
-    }
-
-    internal class Offset
-    {
-        public string Name { get; set; }
-        public string Pattern { get; set; }
-
-        public int Offset1 { get; set; }
-        public int Offset2 { get; set; }
-        public int AddOffset { get; set; }
-
-        internal List<Level> Levels = new List<Level>();
-        internal List<Field> Fields = new List<Field>();
-    }
-
-    internal class Level
-    {
-        public int Offset1 { get; set; }
-        public int Offset2 { get; set; }
-    }
-
-    internal class Field
-    {
-        public string Name { get; set; }
-        public int Offset1 { get; set; }
-        public int Offset2 { get; set; }
     }
 }
