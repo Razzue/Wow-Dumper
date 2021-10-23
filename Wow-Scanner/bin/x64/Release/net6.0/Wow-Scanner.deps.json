@@ -1,0 +1,95 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Wow-Scanner/1.0.0": {
+        "dependencies": {
+          "Reloaded.Memory.Sigscan": "1.2.1",
+          "System.CodeDom": "5.0.0"
+        },
+        "runtime": {
+          "Wow-Scanner.dll": {}
+        }
+      },
+      "Reloaded.Memory/1.4.1": {
+        "dependencies": {
+          "System.Memory": "4.5.3",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Reloaded.Memory.dll": {
+            "assemblyVersion": "1.4.1.0",
+            "fileVersion": "1.4.1.0"
+          }
+        }
+      },
+      "Reloaded.Memory.Sigscan/1.2.1": {
+        "dependencies": {
+          "Reloaded.Memory": "1.4.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Reloaded.Memory.Sigscan.dll": {
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
+          }
+        }
+      },
+      "System.CodeDom/5.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.CodeDom.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {},
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {}
+    }
+  },
+  "libraries": {
+    "Wow-Scanner/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Reloaded.Memory/1.4.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YVdF/zDAO748BvqdkBKdl+6FfTzQJkx2IrcvM9EII0ZIdCIQIqTqZcDjJ6D3cQlnQlHpwFX72cs7n63zCZna7Q==",
+      "path": "reloaded.memory/1.4.1",
+      "hashPath": "reloaded.memory.1.4.1.nupkg.sha512"
+    },
+    "Reloaded.Memory.Sigscan/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-25ccJ8QtNCbbuUNTjHDZhcDVw1FTtSCoBaU5iaJvsG3/00PnNW0LpI5AviJRb6W4Moe965EtiQLD2uZjg0hoVw==",
+      "path": "reloaded.memory.sigscan/1.2.1",
+      "hashPath": "reloaded.memory.sigscan.1.2.1.nupkg.sha512"
+    },
+    "System.CodeDom/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JPJArwA1kdj8qDAkY2XGjSWoYnqiM7q/3yRNkt6n28Mnn95MuEGkZXUbPBf7qc3IjwrGY5ttQon7yqHZyQJmOQ==",
+      "path": "system.codedom/5.0.0",
+      "hashPath": "system.codedom.5.0.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    }
+  }
+}
