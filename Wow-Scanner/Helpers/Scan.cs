@@ -15,10 +15,14 @@ namespace Wow_Scanner
 
                 var ValueOffset = Match + Input.StartIndex;
                 var Value = WoW.Read<int>(WoW.Base + ValueOffset);
-
+                
                 var Next = Match + Input.EndIndex;
                 var nValAddress = WoW.Base + Next;
                 var nValue = nValAddress + Value;
+                var bytes = WoW.ReadBytes(nValAddress, 8);
+                var s = bytes.Aggregate(string.Empty, (Current, b) => Current + $"0x{b:X} ");
+                Console.WriteLine(s);
+
 
                 var Found = nValue.ToInt64() - WoW.Base.ToInt64() - 1;
                 if (Found != 0 && Input.Levels.Count > 0)
@@ -36,11 +40,33 @@ namespace Wow_Scanner
         }
         internal IntPtr GetField(OffsetBase Input, int index)
         {
+            
             var Match = Scans.CompiledFindPattern(Input.Pattern).Offset;
             if (Match == 0x0) return IntPtr.Zero;
+            if (Input.Name == "Auto Loot Toggle") Console.WriteLine($"1, 0x{Match:X}");
 
             var ValueOffset = Match + Input.Fields[index].Offset1;
+            if (Input.Name == "Auto Loot Toggle") Console.WriteLine($"2, 0x{ValueOffset:X}");
+            var bytes = WoW.ReadBytes(WoW.Base + ValueOffset, 5);
+            var s = bytes.Aggregate(string.Empty, (Current, b) => Current + $"0x{b:X} ");
+            Console.WriteLine(s);
+
+
             var Value = WoW.Read<int>(WoW.Base + ValueOffset);
+            if (Input.Name == "Auto Loot Toggle") Console.WriteLine($"3, 0x{Value:X}");
+
+            var Next = Match + Input.EndIndex;
+            if (Input.Name == "Auto Loot Toggle") Console.WriteLine($"4, 0x{Next:X}");
+
+            var nValAddress = WoW.Base + Next;
+            if (Input.Name == "Auto Loot Toggle") Console.WriteLine($"5, 0x{nValAddress.ToInt64():X}");
+
+            var nValue = nValAddress + Value;
+            if (Input.Name == "Auto Loot Toggle") Console.WriteLine($"6, 0x{nValue.ToInt64():X}");
+
+            var Found = nValue.ToInt64() - WoW.Base.ToInt64() - 1;
+            if (Input.Name == "Auto Loot Toggle") Console.WriteLine($"7, 0x{Found:X}");
+
             return new IntPtr(Value);
         }
         internal IntPtr ScanNext(OffsetBase o, long l)

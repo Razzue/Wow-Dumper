@@ -83,6 +83,22 @@ namespace Wow_Scanner.Dumpers
             },
             new OffsetBase
             {
+                Name = "Auto Loot Toggle",
+                Pattern = "48 8B 05 ?? ?? ?? ?? 48 8D 0D ?? ?? ?? ?? 8B 58 ?? E8 ?? ?? ?? ??",
+                StartIndex = 3,
+                EndIndex = 8,
+                Fields = new List<OffsetField>
+                {
+                    new OffsetField()
+                    {
+                        Name = "Loot Toggle Offset",
+                        Offset1 = 16 ,
+                        Offset2 = 18
+                    }
+                }
+            },
+            new OffsetBase
+            {
                 Name = "Last Message",
                 Pattern = "48 8D 0D ?? ?? ?? ?? 41 B8 ?? ?? ?? ?? 48 8D 95 ?? ?? ?? ?? 0F 1F 40 ??",
                 StartIndex = 3,
