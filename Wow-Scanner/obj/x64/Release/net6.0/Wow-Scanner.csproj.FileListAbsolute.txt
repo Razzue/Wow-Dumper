@@ -26,7 +26,6 @@ C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\bin\x64\Release\net6.0\Wow-S
 C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\bin\x64\Release\net6.0\Reloaded.Memory.dll
 C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\bin\x64\Release\net6.0\Reloaded.Memory.Sigscan.dll
 C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\bin\x64\Release\net6.0\System.CodeDom.dll
-C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\obj\x64\Release\net6.0\Wow-Scanner.GlobalUsings.g.cs
 C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\obj\x64\Release\net6.0\Wow-Scanner.csproj.AssemblyReference.cache
 C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\obj\x64\Release\net6.0\Wow-Scanner.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\no\Documents\GitHub\Wow-Dumper\Wow-Scanner\obj\x64\Release\net6.0\Wow-Scanner.AssemblyInfoInputs.cache

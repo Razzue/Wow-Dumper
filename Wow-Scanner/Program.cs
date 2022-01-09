@@ -44,10 +44,9 @@ if (CanContinue)
             if (BurningCrusade.LoadOffsets(Scanner))
             {
                 foreach (var offset in BurningCrusade.Offsets)
-                    Console.WriteLine($"{offset.Key} -> 0x{offset.Value.ToInt64():X}");
-
-                if (ClassWriter.SaveOffsetClass(BurningCrusade.Offsets))
-                    Console.WriteLine("Offsets saved to class file.");
+                    Console.WriteLine($"{offset.Key} -> 0x{offset.Value.ToInt64():X}"); 
+                // if (ClassWriter.SaveOffsetClass(BurningCrusade.Offsets))
+                    // Console.WriteLine("Offsets saved to class file.");
             }
             else Console.WriteLine("Could not load offsets?");
             break;

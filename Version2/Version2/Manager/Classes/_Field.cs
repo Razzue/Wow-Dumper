@@ -1,4 +1,4 @@
-﻿using Version2.Scanner;
+﻿
 
 namespace Version2.Manager
 {

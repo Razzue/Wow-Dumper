@@ -1,9 +1,9 @@
-﻿namespace Version2.Manager
+﻿namespace Wow_Dumper.Patterns
 {
-    internal class _Level
+    public class LevelBase
     {
         public string? Name { get; set; } = null;
         public int Position { get; set; } = 0;
-        public bool MinusOne { get; set; } = true;
+        public int Additional { get; set; } = 0;
     }
 }

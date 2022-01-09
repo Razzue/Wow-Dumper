@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "GF0vpWr2W1q/xLt/NuoC1cqJiC0UH8KDOGKSMjoDXlzamI6w9yNcIAg3q61N67txcaUjlZ3FTC+Xq+/Lg4wn9g==",
+  "dgSpecHash": "Iu6CVfoT5KoQ0maOU13O+tZ4vAhv26vzBrYcbSyvpamQNJkM6/dIBA5421R7w6iWBwnQMg9tyrMhM3ztPNFOeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\erago\\Documents\\GitHub\\Wow-Dumper\\Version2\\Version2\\Version2.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\no\\Documents\\GitHub\\Wow-Dumper\\Version2\\Version2\\Version2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\no\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\reloaded.memory\\1.4.1\\reloaded.memory.1.4.1.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\reloaded.memory.sigscan\\1.2.1\\reloaded.memory.sigscan.1.2.1.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\no\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+  ],
   "logs": []
 }
