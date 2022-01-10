@@ -31,7 +31,7 @@ else
         var s = new Scan();
 
         // Try to load the example patterns
-        var Loaded = c.Load("OffsetExample") || ExampleTBC.Load(c);
+        var Loaded = ExampleTBC.Load(c);
         if (!Loaded)
             Write.Error("Could not load patterns.");
         else
