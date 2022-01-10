@@ -10,9 +10,21 @@ namespace Version2
             {
                 new _Class
                 {
-                    Name = "Player Stuff",
+                    Name = "Guids",
                     Offsets = new[]
                     {
+                        new _Offset
+                        {
+                            Name = "Mouseover Guid",
+                            Pattern = "0F 10 05 ?? ?? ?? ?? EB ?? BA ?? ?? ?? ??",
+                            Position = 3
+                        },
+                        new _Offset
+                        {
+                            Name = "Pet Guid",
+                            Pattern = "48 8B 05 ?? ?? ?? ?? 33 DB 45 8B E1",
+                            Position = 3
+                        },
                         new _Offset
                         {
                             Name = "Player Guid",
@@ -21,20 +33,73 @@ namespace Version2
                         },
                         new _Offset
                         {
+                            Name = "Target Guid",
+                            Pattern = "48 39 05 ?? ?? ?? ?? 75 ?? B1 ?? E8 ?? ?? ?? ?? 41 B8 ?? ?? ?? ??",
+                            Position = 3,
+                            Modifier = -0x8
+                        },
+                        new _Offset
+                        {
+                            Name = "Last Target Guid",
+                            Pattern = "48 39 05 ?? ?? ?? ?? 75 ?? B1 ?? E8 ?? ?? ?? ?? 41 B8 ?? ?? ?? ??",
+                            Position = 3,
+                            Modifier = -0x8 + 0x10,
+                        },
+                        new _Offset
+                        {
+                            Name = "Last Enemy Guid",
+                            Pattern = "48 39 05 ?? ?? ?? ?? 75 ?? B1 ?? E8 ?? ?? ?? ?? 41 B8 ?? ?? ?? ??",
+                            Position = 3,
+                            Modifier = -0x8 + 0x20,
+                        },
+                        new _Offset
+                        {
+                            Name = "Last Friendly Guid",
+                            Pattern = "48 39 05 ?? ?? ?? ?? 75 ?? B1 ?? E8 ?? ?? ?? ?? 41 B8 ?? ?? ?? ??",
+                            Position = 3,
+                            Modifier = -0x8 + 0x30,
+                        },
+                        new _Offset
+                        {
+                            Name = "Focus Guid",
+                            Pattern = "48 39 05 ?? ?? ?? ?? 75 ?? B1 ?? E8 ?? ?? ?? ?? 41 B8 ?? ?? ?? ??",
+                            Position = 3,
+                            Modifier = -0x8 + 0x40,
+                        },
+                        new _Offset
+                        {
+                            Name = "DialogWindowOwner Guid",
+                            Pattern = "48 39 05 ?? ?? ?? ?? 75 ?? B1 ?? E8 ?? ?? ?? ?? 41 B8 ?? ?? ?? ??",
+                            Position = 3,
+                            Modifier = -0x8 + 0x50,
+                        },
+                    }
+                },
+                new _Class
+                {
+                    Name = "Global Data",
+                    Offsets = new []
+                    {
+                        new _Offset
+                        {
+                            Name = "In Game Status",
+                            Pattern = "0F B6 15 ?? ?? ?? ?? C1 EA ?? 83 E2 ?? E8 ?? ?? ?? ?? B8 ?? ?? ?? ?? 48 83 C4 ?? C3 48 83 EC ??",
+                            Position = 3
+                        },
+                       
+                        new _Offset
+                        {
                             Name = "Player Name",
                             Pattern = "E8 ?? ?? ?? ?? 48 8D 4C 24 ?? 48 8B D8 E8 ?? ?? ?? ?? 4C 89 74 24",
                             Position = 1,
                             Levels = new []
                             {
-                                new _Level
-                                {
-                                    Position = 5,
-                                    MinusOne = true
-                                }
+                                new _Level { Position = 5 }
                             }
                         }
                     }
                 },
+
                 new _Class
                 {
                     Name = "Auto Loot",
@@ -57,6 +122,7 @@ namespace Version2
                         },
                     }
                 },
+
                 new _Class
                 {
                     Name = "Camera",

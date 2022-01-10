@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
+using Version2.Writer;
 
 namespace Version2.Helpers
 {
@@ -38,7 +39,7 @@ namespace Version2.Helpers
             }
             catch (Exception e)
             {
-                Console.WriteLine($"{Time} {e.Message}");
+                Write.Error($"{Time} {e.Message}");
                 return false;
             }
         }

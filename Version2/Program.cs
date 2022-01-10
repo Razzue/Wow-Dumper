@@ -11,8 +11,6 @@ using Version2.Writer;
 Write.General("Enter process id you wish to attach to, then press enter.");
 var str = Console.ReadLine();
 
-
-
 // Try to parse console entry
 if (string.IsNullOrEmpty(str) || !int.TryParse(str, out var PID))
     Write.Error("Could not parse input.");
@@ -33,8 +31,9 @@ else
         var s = new Scan();
 
         // Try to load the example patterns
-        if (!ExampleTBC.Load(c))
-            Write.Error("Could not load example patterns.");
+        var Loaded = c.Load("OffsetExample") || ExampleTBC.Load(c);
+        if (!Loaded)
+            Write.Error("Could not load patterns.");
         else
         {
             // Try to get offsets, may take a hot minute.
@@ -45,7 +44,7 @@ else
                 Write.Success($"Loaded {c.Loaded.Count} classes");
                 if (!DomWriter.Write(c))
                     Write.Error("Could not save offsets to class.");
-                else Write.Success("Offsets have been saved!");
+                else Write.Success("Offsets have been saved to .cs!");
 
                 Console.WriteLine(""); // Just a separator.
                 foreach (var pair1 in c.Loaded)
@@ -57,6 +56,11 @@ else
                 }
             }
         }
+
+        if (Loaded)
+            if (!c.Save("OffsetExample"))
+                Write.Error("Could not save patterns to file.");
+        else Write.Success("Patterns have been saved to .json!");
     }
 }
 

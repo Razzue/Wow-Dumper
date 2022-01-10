@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Version2.Writer;
 
 namespace Version2.Manager
 {
@@ -34,7 +35,7 @@ namespace Version2.Manager
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Write.Error(ex.Message);
                 return false;
             }
         }
@@ -61,7 +62,7 @@ namespace Version2.Manager
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Write.Error(ex.Message);
                 return false;
             }
         }
