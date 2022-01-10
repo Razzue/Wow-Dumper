@@ -31,7 +31,49 @@ else
         var s = new Scan();
 
         // Try to load the example patterns
-        var Loaded = ExampleTBC.Load(c);
+        var Loaded = ExampleSOM.Load(c);
+
+        var exp = Client.Version.Split('.').FirstOrDefault();
+        switch (exp)
+        {
+            case "1":
+                Loaded = ExampleSOM.Load(c);
+                break;
+
+            case "2":
+                Loaded = ExampleTBC.Load(c);
+                break;
+
+            case "3":
+                Write.Warning("Wrath of the Lich King is not implemented.");
+                break;
+
+            case "4":
+                Write.Warning("Cataclysm is not implemented.");
+                break;
+
+            case "5":
+                Write.Warning("Mists of Pandaria is not implemented.");
+                break;
+
+            case "6":
+                Write.Warning("Warlords of Draenor is not implemented.");
+                break;
+
+            case "7":
+                Write.Warning("Legion is not implemented.");
+                break;
+
+            case "8":
+                Write.Warning("Battle for Azeroth is not implemented.");
+                break;
+
+            case "9":
+                Write.Warning("Shadowlands is not implemented.");
+                break;
+
+        }
+
         if (!Loaded)
             Write.Error("Could not load patterns.");
         else
