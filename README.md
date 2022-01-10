@@ -20,7 +20,7 @@ A simple wow offset dumper.
 • `int Position;` -> Index + 1 of the last byte before the first wildcard(s) you're scanning for.
 <br> • `bool MinusOne;` -> Subtract one from the located pointer of the offset. Should be left true in 99% of uses.
 
-# _Offset()
+# _Field()
 • `ReadType Type;` -> Defines how many bytes the scanner reads for the field (1, 2, 4, 8, 10, 25, or 50).
 <br> • `int Position;` -> Index + 1 of the last byte before the first wildcard(s) you're scanning for. Will automate this eventually.
 <br> • `string? Name;` -> The output name of the field. Anything non alphanumeric will be regexed out, and spaces replaced with '_'.
