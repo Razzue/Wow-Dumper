@@ -26,6 +26,9 @@ A simple wow offset dumper.
 <br> • `string? Name;` -> The output name of the field. Anything non alphanumeric will be regexed out, and spaces replaced with '_'.
 <br> • `string? Comment;` -> Not currently hooked up. Will add comment after value in CodeDom writer.
 
+# Packages
+• [Reloaded.Memory.SigScan](https://www.nuget.org/packages/Reloaded.Memory.Sigscan/1.2.1) •  [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/13.0.1) • [System.CodeDom](https://www.nuget.org/packages/System.CodeDom/6.0.0)
+
 <br>Donations always welcome <3 
 <br>BTC   -> bc1q22p5q8dnw2ldzwk3c8eyp7mn7spng2wepg6hgr
 <br>Eth   -> 0xd6A688E2Bd8EEB7E75e570A5F82585a42eAe2373
