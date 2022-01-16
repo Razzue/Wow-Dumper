@@ -69,7 +69,10 @@ else
                 break;
 
             case "9":
-                Write.Warning("Shadowlands is not implemented.");
+                Loaded = ExampleTBC.Load(c);
+                break;
+
+            default:
                 break;
 
         }

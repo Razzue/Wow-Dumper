@@ -8,6 +8,7 @@
         public int Position { get; set; } = 0;
         public int Modifier { get; set; } = 0;
         public bool MinusOne { get; set; } = true;
+        public bool IsFunction { get; set; } = false;
 
         public _Level[]? Levels { get; set; } = null;
         public _Field[]? Fields { get; set; } = null;

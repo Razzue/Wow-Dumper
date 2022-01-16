@@ -89,6 +89,10 @@ namespace Version2.Helpers
                 var Match = Scans.CompiledFindPattern(o.Pattern).Offset;
                 if (Match == 0x0) return false;
 
+                if (o.IsFunction)
+                    offset = new IntPtr(Match);
+                if (offset != IntPtr.Zero) return true;
+
                 var Value = Client.Read<int>(Client.Base + (Match + o.Position));
                 var nValAddress = Client.Base + (Match + (o.Position + 5));
                 var nValue = nValAddress + Value;
@@ -105,7 +109,7 @@ namespace Version2.Helpers
                 if (Found != 0 && o.Modifier != 0)
                     Found += o.Modifier;
 
-                offset = new IntPtr(Found);
+                offset = new IntPtr(Found); 
                 return IntPtr.Zero != offset;
             }
             catch (Exception e)

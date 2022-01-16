@@ -7,7 +7,19 @@ namespace Version2
         internal static bool Load(Container C)
         {
             C.Classes = new List<_Class>
-            {
+            {new _Class
+                {
+                    Name = "Scripts",
+                    Offsets = new[]
+                    {
+                        new _Offset
+                        {
+                            Name = "Script_IsAutoRepeatSpell",
+                            Pattern = "48 89 74 24 ?? 57 48 83 EC ?? 33 FF C7 44 24 ?? ?? ?? ?? ??",
+                            IsFunction = true
+                        },
+                    }
+                }, // Scripts
                 new _Class
                 {
                     Name = "Guids",
@@ -681,7 +693,7 @@ namespace Version2
                         },
                         new _Offset
                         {
-                            Name = "NameStart",
+                            Name = "List",
                             Pattern = "E8 ?? ?? ?? ?? 85 C0 74 ?? 8B CE",
                             Position = 1,
                             Levels = new []
