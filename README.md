@@ -13,6 +13,7 @@ A simple wow offset dumper.
 <br> • `int Position;` -> Index + 1 of the last byte before the first wildcard(s) you're scanning for. Will automate this eventually.
 <br> • `int Modifier;` -> Any additional values that should be added to located IntPtr.
 <br> • `bool MinusOne;` -> Subtract one from the located pointer of the offset. Should be left true in 99% of uses.
+<br> • `bool IsFunction;` -> Stops the scanner exactly where the pattern points. Useful for finding scripts/functions.
 <br> • `_Level[]? Levels;` -> Extra levels to scan through. Offset will reflect end result.
 <br> • `_Field[]? Fields;` -> Extra fields that can be grabbed from the patterns location.
 
